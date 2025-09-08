@@ -1,8 +1,7 @@
-import { createHttpClient } from "./httpClient.js";
 import { getConfig } from "./config.js";
 
 function sleep(ms) {
-  return new Promise((res) => setTimeout(res, ms));
+  return new Promise(res => setTimeout(res, ms));
 }
 
 function computeDelay(attempt, baseDelayMs, maxDelayMs, jitter) {
@@ -15,20 +14,30 @@ const DEFAULT_OPTS = {
   baseDelayMs: 500,
   maxDelayMs: 8000,
   jitter: true,
-  timeoutMs: 6000
+  timeoutMs: 6000,
+  headers: {}
 };
 
 export async function postWithRetry(env = "prod", payload, options = {}) {
   const opts = { ...DEFAULT_OPTS, ...options };
   const { BASE_URL, DEFAULT_PATH } = getConfig(env);
   const url = `${BASE_URL}${opts.endpointPath || DEFAULT_PATH}`;
-  const client = createHttpClient({ timeoutMs: opts.timeoutMs, headers: opts.headers });
 
   let attempts = 0;
   while (true) {
-    attempts += 1;
+    attempts++;
     try {
-      await client.post(url, payload);
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), opts.timeoutMs);
+
+      await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...opts.headers },
+        body: JSON.stringify(payload),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeout);
       return { ok: true, attempts };
     } catch (error) {
       if (attempts > opts.maxRetries + 1) {

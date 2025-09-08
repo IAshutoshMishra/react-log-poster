@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { usePostLog } from "./usePostLog.js";
 
 export function LogPoster({ env = "prod", payload, autoPost = true, onComplete, options }) {
-  const { status, error, postLog } = usePostLog(env);
+  const { postLog } = usePostLog(env);
 
   useEffect(() => {
     let active = true;
