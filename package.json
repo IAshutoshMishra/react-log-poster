@@ -8,14 +8,17 @@
     "prepublishOnly": "npm run build"
   },
   "types": "dist/index.d.ts",
-  "keywords": ["react", "logging", "post", "retry", "axios"],
+  "keywords": [
+    "react",
+    "logging",
+    "post",
+    "retry",
+    "axios"
+  ],
   "author": "Ashutosh",
   "license": "MIT",
   "peerDependencies": {
     "react": ">=16.8.0"
-  },
-  "dependencies": {
-    "axios": "^1.7.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.0",
