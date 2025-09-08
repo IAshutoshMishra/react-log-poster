@@ -1,22 +1,19 @@
-# 🚀 React Log Poster
-
-[![npm version](https://img.shields.io/npm/v/react-log-poster)](https://www.npmjs.com/package/react-log-poster)  
-[![License](https://img.shields.io/npm/l/react-log-poster)](https://opensource.org/licenses/MIT)
+# React Log Poster
 
 A lightweight, efficient React library to **POST logs** to a fixed API endpoint with built-in **in-memory retry** and environment configurations.
 
 ---
 
-## ✅ Why Use React Log Poster?
+## Why Use React Log Poster?
 
-- 🔧 Easy to integrate: Just use a hook or a component.
-- ⚡ Reliable: Built-in in-memory retry with exponential backoff and jitter.
-- 🌐 Supports environments: `test | demo | prod`.
-- 🚀 Fire-and-forget friendly — ideal for performance-critical applications.
+- Easy to integrate: Just use a hook or a component.
+- Reliable: Built-in in-memory retry with exponential backoff and jitter.
+- Supports environments: `test | demo | prod`.
+- Fire-and-forget friendly — ideal for performance-critical applications.
 
 ---
 
-## 🎯 Use Cases
+## Use Cases
 
 - Track user interactions (button clicks, page views).
 - Send custom audit logs to your centralized logging API.
@@ -24,7 +21,7 @@ A lightweight, efficient React library to **POST logs** to a fixed API endpoint 
 
 ---
 
-## ⚡ Installation
+## Installation
 
 ```bash
 npm install react-log-poster
@@ -38,9 +35,9 @@ npm install ./path/to/react-log-poster
 
 ---
 
-## 📚 Usage
+## Usage
 
-### ✅ Using the Hook
+### Using the Hook
 
 ```jsx
 import React from "react";
@@ -66,7 +63,7 @@ function LogButton() {
 
 ---
 
-### ✅ Using the Component
+### Using the Component
 
 ```jsx
 import React from "react";
@@ -90,7 +87,7 @@ function AutoLogPage() {
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Edit `src/config.js` to customize your environment URLs:
 
@@ -104,7 +101,7 @@ const ENVIRONMENTS = {
 
 ---
 
-## 🔧 Retry Options
+## Retry Options
 
 ```ts
 {
@@ -120,7 +117,7 @@ const ENVIRONMENTS = {
 
 ---
 
-## 📦 Build
+## Build
 
 ```bash
 npm install
@@ -129,7 +126,7 @@ npm run build
 
 ---
 
-## ✅ License
+## License
 
 MIT License
 
