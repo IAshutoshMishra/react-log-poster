@@ -1,4 +1,4 @@
-# React Log Poster
+# React Log Poster - A Node Module
 
 A lightweight, efficient React library to **POST logs** to a fixed API endpoint with built-in **in-memory retry** and environment configurations.
 
