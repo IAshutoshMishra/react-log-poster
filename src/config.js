@@ -1,7 +1,7 @@
 const ENVIRONMENTS = {
-  test: { BASE_URL: "https://jsonplaceholder.typicode.com/posts", DEFAULT_PATH: "/logs" },
-  demo: { BASE_URL: "https://jsonplaceholder.typicode.com/posts", DEFAULT_PATH: "/logs" },
-  prod: { BASE_URL: "https://jsonplaceholder.typicode.com/posts", DEFAULT_PATH: "/logs" }
+  test: { BASE_URL: "https://jsonplaceholder.typicode.com/posts", DEFAULT_PATH: "/" },
+  demo: { BASE_URL: "https://jsonplaceholder.typicode.com/posts", DEFAULT_PATH: "/" },
+  prod: { BASE_URL: "https://jsonplaceholder.typicode.com/posts", DEFAULT_PATH: "/" }
 };
 
 export function getConfig(env = "prod") {
