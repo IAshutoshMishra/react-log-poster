@@ -93,9 +93,9 @@ Edit `src/config.js` to customize your environment URLs:
 
 ```js
 const ENVIRONMENTS = {
-  test: { BASE_URL: "https://your-test-api.com", DEFAULT_PATH: "/logs" },
-  demo: { BASE_URL: "https://your-demo-api.com", DEFAULT_PATH: "/logs" },
-  prod: { BASE_URL: "https://your-prod-api.com", DEFAULT_PATH: "/logs" }
+  test: { BASE_URL: "https://your-test-api.com", DEFAULT_PATH: "/" },
+  demo: { BASE_URL: "https://your-demo-api.com", DEFAULT_PATH: "/" },
+  prod: { BASE_URL: "https://your-prod-api.com", DEFAULT_PATH: "/" }
 };
 ```
 
