@@ -30,7 +30,7 @@ export async function postWithRetry(env = "prod", payload, options = {}) {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), opts.timeoutMs);
 
-      await fetch(url, {
+      const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...opts.headers },
         body: JSON.stringify(payload),
@@ -38,9 +38,12 @@ export async function postWithRetry(env = "prod", payload, options = {}) {
       });
 
       clearTimeout(timeout);
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status} ${response.statusText}`);
+      }
       return { ok: true, attempts };
     } catch (error) {
-      if (attempts > opts.maxRetries + 1) {
+      if (attempts > opts.maxRetries) {
         return { ok: false, attempts, error };
       }
       const delay = computeDelay(attempts - 1, opts.baseDelayMs, opts.maxDelayMs, opts.jitter);
